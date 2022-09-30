@@ -1,4 +1,4 @@
-import react, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import GridBlock from './GridBlock';
 
 const PLAYER_ONE = 'PLAYER 1'
@@ -23,8 +23,10 @@ function TickTackToe(){
         (cloneGrid[6]===cloneGrid[7]&&cloneGrid[7]===cloneGrid[8]&&cloneGrid[6]!==''&&cloneGrid[7]!==''&&cloneGrid[8]!=='')||
         (cloneGrid[0]===cloneGrid[3]&&cloneGrid[3]===cloneGrid[6]&&cloneGrid[0]!==''&&cloneGrid[3]!==''&&cloneGrid[6]!=='')||
         (cloneGrid[1]===cloneGrid[4]&&cloneGrid[4]===cloneGrid[7]&&cloneGrid[1]!==''&&cloneGrid[4]!==''&&cloneGrid[7]!=='')||
-        (cloneGrid[2]===cloneGrid[5]&&cloneGrid[5]===cloneGrid[8]&&cloneGrid[2]!==''&&cloneGrid[5]!==''&&cloneGrid[8]!=='')){
-            setWinner(player)
+        (cloneGrid[2]===cloneGrid[5]&&cloneGrid[5]===cloneGrid[8]&&cloneGrid[2]!==''&&cloneGrid[5]!==''&&cloneGrid[8]!=='')||
+        (cloneGrid[0]===cloneGrid[4]&&cloneGrid[4]===cloneGrid[8]&&cloneGrid[0]!==''&&cloneGrid[4]!==''&&cloneGrid[8]!=='')||
+        (cloneGrid[2]===cloneGrid[4]&&cloneGrid[4]===cloneGrid[6]&&cloneGrid[2]!==''&&cloneGrid[4]!==''&&cloneGrid[6]!=='')){
+            setWinner(`${player} wins!`)
         }
     }
     const resetGrid=e=>{
