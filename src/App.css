@@ -8,3 +8,13 @@
     width:40%;
     flex-flow:row wrap
 }
+
+.XIcon{
+    width:90%;
+    pointer-events: none;
+}
+
+.OIcon{
+    width:90%;
+    pointer-events: none;
+}

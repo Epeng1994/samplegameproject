@@ -1,0 +1,3 @@
+-Have sound play when winner/game ends
+-prevent moves after winner/board filled
+-

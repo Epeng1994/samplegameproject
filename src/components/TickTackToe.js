@@ -9,6 +9,7 @@ function TickTackToe(){
     const [player,setPlayer] = useState(PLAYER_ONE)
     const [winner,setWinner] = useState('')
 
+
     const onGridChange = e =>{
         const currentPlayer =  player === 'PLAYER 1' ? 'X' : 'O'
         let cloneGrid = [...grid]
@@ -17,7 +18,7 @@ function TickTackToe(){
             setPlayer(currentPlayer === 'X' ? PLAYER_TWO:PLAYER_ONE)
             setGrid(cloneGrid)
         }
-        //win conditions 0-1-2 3-4-5 6-7-8 0-5-8 1-5-7 2-5-6
+
         if((cloneGrid[0]===cloneGrid[1]&&cloneGrid[1]===cloneGrid[2]&&cloneGrid[0]!==''&&cloneGrid[1]!==''&&cloneGrid[2]!=='')||
         (cloneGrid[3]===cloneGrid[4]&&cloneGrid[4]===cloneGrid[5]&&cloneGrid[3]!==''&&cloneGrid[4]!==''&&cloneGrid[5]!=='')||
         (cloneGrid[6]===cloneGrid[7]&&cloneGrid[7]===cloneGrid[8]&&cloneGrid[6]!==''&&cloneGrid[7]!==''&&cloneGrid[8]!=='')||
@@ -29,15 +30,12 @@ function TickTackToe(){
             setWinner(`${player} wins!`)
         }
     }
+
     const resetGrid=e=>{
         setGrid(['','','','','','','','',''])
         setPlayer(PLAYER_ONE)
         setWinner('')
     }
-
-    useEffect(()=>{
-
-    },[grid])
 
     return(
         <>
