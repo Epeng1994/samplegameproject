@@ -8,7 +8,7 @@ function TickTackToe(){
     const [grid, setGrid]= useState(['','','','','','','','',''])
     const [player,setPlayer] = useState(PLAYER_ONE)
     const [winner,setWinner] = useState('')
-
+    const [moves,setMoves] = useState(0)
 
     const onGridChange = e =>{
         const currentPlayer =  player === 'PLAYER 1' ? 'X' : 'O'
@@ -18,7 +18,7 @@ function TickTackToe(){
             setPlayer(currentPlayer === 'X' ? PLAYER_TWO:PLAYER_ONE)
             setGrid(cloneGrid)
         }
-
+        setMoves(moves+1)
         if((cloneGrid[0]===cloneGrid[1]&&cloneGrid[1]===cloneGrid[2]&&cloneGrid[0]!==''&&cloneGrid[1]!==''&&cloneGrid[2]!=='')||
         (cloneGrid[3]===cloneGrid[4]&&cloneGrid[4]===cloneGrid[5]&&cloneGrid[3]!==''&&cloneGrid[4]!==''&&cloneGrid[5]!=='')||
         (cloneGrid[6]===cloneGrid[7]&&cloneGrid[7]===cloneGrid[8]&&cloneGrid[6]!==''&&cloneGrid[7]!==''&&cloneGrid[8]!=='')||
@@ -35,10 +35,18 @@ function TickTackToe(){
         setGrid(['','','','','','','','',''])
         setPlayer(PLAYER_ONE)
         setWinner('')
+        
     }
+
+    useEffect(()=>{
+        if(winner || moves === 9){
+            document.getElementById('winner').play()
+        }
+    },[grid])
 
     return(
         <>
+        <audio id = 'winner'><source src = 'congratulations.mp3' type='audio/mpeg'/></audio>
         <div>
             <div>Current Player: {player}</div>
             {winner ? <div>{winner}</div> : null}
@@ -52,7 +60,7 @@ function TickTackToe(){
             }
             </div>
             <button onClick = {()=>resetGrid()}>Reset</button>
-
+            
         </div>
         </>
     )

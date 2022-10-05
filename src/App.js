@@ -1,6 +1,6 @@
 import './App.css';
 import {Route} from 'react-router-dom';
-import TickTackToe from './components/TickTackToe';
+import TickTackToe from './components/TickTackToeGame/TickTackToe';
 
 
 function App() {
