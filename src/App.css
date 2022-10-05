@@ -21,3 +21,16 @@
     width:90%;
     pointer-events: none;
 }
+.winnerBlock{
+    background-color: rgb(65, 86, 126);
+    height: 50vw;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.winnerBlock p{
+    background-color: rgb(129, 189, 241);
+    padding: 5vw;
+}

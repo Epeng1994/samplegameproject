@@ -1,5 +1,5 @@
 import './App.css';
-import {Route} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import TickTackToe from './components/TickTackToeGame/TickTackToe';
 
 
@@ -8,8 +8,9 @@ function App() {
     <div className="App">
       <header className="App-header">
       </header>
-
-      <TickTackToe/>
+      <Routes>
+        <Route path='/' element = {<TickTackToe/>}/>
+      </Routes>
     </div>
   );
 }
