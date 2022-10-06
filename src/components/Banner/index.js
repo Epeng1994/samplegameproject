@@ -12,7 +12,7 @@ function Banner(props){
         <div className = 'banner'>
             <div className = 'centerContainer' onClick = {homeOnClick}><h1>Retro Corner</h1></div>
             <div className ='gameSelectContainer'>
-                <div className = 'gameSelect'><Link to = '/tictacktoe'>tictacktoe</Link></div>
+                <div className = 'gameSelect'><Link to = '/tictacktoe'>Tic Tac Toe</Link></div>
                 <div className = 'gameSelect'><Link to = '/snake'>Snake</Link></div>
                 <div className = 'gameSelect'><Link to = '/pong'>Pong</Link></div>
             </div>
