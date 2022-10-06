@@ -1,3 +1,6 @@
 -Have sound play when winner/game ends
 -prevent moves after winner/board filled
--
+-Icon for page
+-Logo for main page
+-selection for symbol for player?
+-ai for tictacktoe?

@@ -46,3 +46,8 @@
     justify-content: center;
     align-items: center;
 }
+.sound_icon{
+    width:2vw;
+    border-radius: 1vw;
+    position: absolute;
+}

@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import GridBlock from './GridBlock';
 import WinnerBlock from './WinnerBlock';
 
+
 const PLAYER_ONE = 'PLAYER 1'
 const PLAYER_TWO = 'PLAYER 2'
 
@@ -10,6 +11,8 @@ function TickTackToe(){
     const [player,setPlayer] = useState(PLAYER_ONE)
     const [winner,setWinner] = useState('')
     const [moves,setMoves] = useState(0)
+
+
 
     const onGridChange = e =>{
         const currentPlayer =  player === 'PLAYER 1' ? 'X' : 'O'
