@@ -34,3 +34,15 @@
     background-color: rgb(129, 189, 241);
     padding: 5vw;
 }
+.banner{
+    background-color: aquamarine;
+}
+.gameSelectContainer{
+    display: flex;
+    justify-content: space-around;
+}
+.centerContainer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}

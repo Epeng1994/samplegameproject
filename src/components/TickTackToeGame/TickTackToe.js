@@ -53,7 +53,7 @@ function TickTackToe(){
     return(
         <>
         <h1>Tic Tack Toe</h1>
-        <audio id = 'winner'><source src = 'congratulations.mp3' type='audio/mpeg'/></audio>
+        <audio id = 'winner'><source src = '/sounds/congratulations.mp3' type='audio/mpeg'/></audio>
         {winner &&<WinnerBlock winner={winner} reset={resetGrid}/>}
         <div>
             <div>Current Player: {player} {player === 'PLAYER 1' ? 'X' : 'O'}</div>
