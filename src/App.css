@@ -41,13 +41,29 @@
     display: flex;
     justify-content: space-around;
 }
+
 .centerContainer{
     display:flex;
     justify-content: center;
     align-items: center;
+    flex-flow: column;
 }
 .sound_icon{
-    width:2vw;
+    width:4vw;
     border-radius: 1vw;
     position: absolute;
+}
+
+.snake_board{
+    width:30%;
+    display: flex;
+    flex-flow: row wrap;
+}
+.snake_board .snake_block{
+    border: 1px solid red;
+    width:5vw;
+    height:5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

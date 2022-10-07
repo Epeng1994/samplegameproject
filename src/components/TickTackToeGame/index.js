@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import GridBlock from './GridBlock';
 import WinnerBlock from './WinnerBlock';
+import Sound from '../../sounds/Retro-8-bit-damage.mp3'
 
 
 const PLAYER_ONE = 'PLAYER 1'
@@ -11,8 +12,8 @@ function TickTackToe(){
     const [player,setPlayer] = useState(PLAYER_ONE)
     const [winner,setWinner] = useState('')
     const [moves,setMoves] = useState(0)
-
-
+    const gameEnd = new Audio(Sound)
+    gameEnd.volume=.4  
 
     const onGridChange = e =>{
         const currentPlayer =  player === 'PLAYER 1' ? 'X' : 'O'
@@ -35,6 +36,10 @@ function TickTackToe(){
         (cloneGrid[2]===cloneGrid[4]&&cloneGrid[4]===cloneGrid[6]&&cloneGrid[2]!==''&&cloneGrid[4]!==''&&cloneGrid[6]!=='')){
             setWinner(`${player} wins!`)
         }
+        if(moves===9){
+            setWinner('It\'s a tie')
+        }
+        
     }
 
     const resetGrid=e=>{
@@ -46,33 +51,29 @@ function TickTackToe(){
 
     useEffect(()=>{
         if(winner){
-            document.getElementById('winner').play()
-        }
-        if(moves === 9){
-            setWinner('It\'s a tie')
+            gameEnd.play()
         }
     },[grid])
 
     return(
-        <>
-        <h1>Tic Tack Toe</h1>
-        <audio id = 'winner'><source src = '/sounds/congratulations.mp3' type='audio/mpeg'/></audio>
-        {winner &&<WinnerBlock winner={winner} reset={resetGrid}/>}
-        <div>
-            <div>Current Player: {player} {player === 'PLAYER 1' ? 'X' : 'O'}</div>
-            {winner ? <div>{winner}</div> : null}
-            <div className = 'container'>
-            {
-                grid.map((a,i)=>{
-                    return(
-                        <GridBlock idx = {i} onGridChange = {onGridChange} value = {a}/>
-                    )
-                })
-            }
+        <div className ='centerContainer'>
+            <h1>Tic Tack Toe</h1>
+            {winner &&<WinnerBlock winner={winner} reset={resetGrid}/>}
+            <div className ='centerContainer'>
+                <div>Current Player: {player} {player === 'PLAYER 1' ? 'X' : 'O'}</div>
+                {winner ? <div>{winner}</div> : null}
+                <div className = 'container'>
+                {
+                    grid.map((a,i)=>{
+                        return(
+                            <GridBlock idx = {i} onGridChange = {onGridChange} value = {a}/>
+                        )
+                    })
+                }
+                </div>
+                <button onClick = {()=>resetGrid()}>Reset</button>
             </div>
-            <button onClick = {()=>resetGrid()}>Reset</button>
         </div>
-        </>
     )
 };
 
