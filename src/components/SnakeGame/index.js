@@ -20,8 +20,18 @@ function SnakeGame(props){
     },[])
 
 
-    const gridChange =()=>{
-        
+    const gridChange =position=>{
+        switch(position){
+            case 'left':
+                console.log('here')
+                return;
+            case 'right':
+                return;
+            case 'up':
+                return;
+            case 'down':
+                return;
+        }
     }
 
     return(
@@ -35,10 +45,10 @@ function SnakeGame(props){
                         )
                     })
                 }
-                <button>up</button>
-                <button>down</button>
-                <button>left</button>
-                <button>right</button>
+                <button onClick = {()=>gridChange('up')}>up</button>
+                <button onClick = {()=>gridChange('down')}>down</button>
+                <button onClick = {()=>gridChange('left')}>left</button>
+                <button onClick = {()=>gridChange('right')}>right</button>
             </div>
         </div>
     )
