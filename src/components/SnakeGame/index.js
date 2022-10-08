@@ -1,14 +1,20 @@
 import react,{useState} from 'react';
 
+
+const gridLayout = new Array(25).fill('')
+
+
 function Snake(props){
     
-    const [grid, setGrid] = useState(new Array(25).fill(''))
+    const [grid, setGrid] = useState(gridLayout)
     const [snake,setSnake] = useState([])
     const [food,setFood] = useState(0)
 
     const foodGeneration = ()=>{
-        const index = Math.round(Math.random()*25)
-        console.log(index)
+        const index = Math.floor(Math.random()*25)
+        let cloneGrid = [...gridLayout]
+        cloneGrid[index] = 'X'
+        setGrid(cloneGrid)
     }
 
 
