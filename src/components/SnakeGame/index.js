@@ -1,27 +1,33 @@
-import react,{useState} from 'react';
-
+import react,{useState, useEffect} from 'react';
 
 const gridLayout = new Array(25).fill('')
 
 
-function Snake(props){
-    
-    const [grid, setGrid] = useState(gridLayout)
-    const [snake,setSnake] = useState([])
-    const [food,setFood] = useState(0)
 
-    const foodGeneration = ()=>{
-        const index = Math.floor(Math.random()*25)
-        let cloneGrid = [...gridLayout]
-        cloneGrid[index] = 'X'
+function SnakeGame(props){
+    const [grid,setGrid] = useState(gridLayout)
+    const [food,setFood] = useState(Math.floor(Math.random()*25))
+    const [snake,setSnake] = useState([0])
+
+
+    useEffect(()=>{
+        let cloneGrid = [...grid]
+        cloneGrid[food] = 'F'
+        for(let index of snake){
+            cloneGrid[index] = 'S'
+        }
         setGrid(cloneGrid)
-    }
+    },[])
 
+
+    const gridChange =()=>{
+        
+    }
 
     return(
         <div className ='centerContainer'>
             <h1>Snake</h1>
-            <div className = 'snake_board'>
+            <div className ='snake_board'>
                 {
                     grid.map(a=>{
                         return(
@@ -29,12 +35,15 @@ function Snake(props){
                         )
                     })
                 }
+                <button>up</button>
+                <button>down</button>
+                <button>left</button>
+                <button>right</button>
             </div>
-            <button onClick = {foodGeneration}>Randomize food</button>
         </div>
     )
 }
-export default Snake;
+export default SnakeGame;
 /*
     state for grid
     state for snake
