@@ -54,20 +54,7 @@
     position: absolute;
 }
 
-.snake_board{
-    width:30%;
-    display: flex;
-    flex-flow: row wrap;
 
-}
-.snake_board .snake_block{
-    border: 1px solid red;
-    width:5vw;
-    height:5vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 /* .foodGrid{
     position:absolute;

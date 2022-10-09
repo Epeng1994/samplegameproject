@@ -1,29 +1,33 @@
 import react,{useState, useEffect} from 'react';
+import './SnakeGame.css'
+import Snake_Board_Grid from './Snake_Board_Grid';
 
 const gridLayout = new Array(25).fill('')
-
+const arrOfArr = [['','','','','',],['','','','','',],['','','','','',],['','','','','',],['','','','','',]]
 
 
 function SnakeGame(props){
-    const [grid,setGrid] = useState(gridLayout)
+    const [grid,setGrid] = useState(arrOfArr)
     const [food,setFood] = useState(Math.floor(Math.random()*25))
-    const [snake,setSnake] = useState([0])
+    const [snake,setSnake] = useState([[0,0]])
 
 
     useEffect(()=>{
-        let cloneGrid = [...grid]
-        cloneGrid[food] = 'F'
-        for(let index of snake){
-            cloneGrid[index] = 'S'
+        // let cloneGrid = [...grid]
+        // cloneGrid[food] = 'F'
+        // for(let index of snake){
+        //     cloneGrid[index] = 'S'
+        // }
+        // setGrid(cloneGrid)
+        return()=>{
+
         }
-        setGrid(cloneGrid)
     },[])
 
 
     const gridChange =position=>{
         switch(position){
             case 'left':
-                console.log('here')
                 return;
             case 'right':
                 return;
@@ -39,9 +43,9 @@ function SnakeGame(props){
             <h1>Snake</h1>
             <div className ='snake_board'>
                 {
-                    grid.map(a=>{
+                    grid.map(row=>{
                         return(
-                            <div className = 'snake_block'>{a}</div>
+                            <Snake_Board_Grid row={row}/>
                         )
                     })
                 }
